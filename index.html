@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/Log.webp" type="images/png">
+    <link rel="stylesheet" href="style/main.css">
+    <title>Китай</title>
+</head>
+
+
+<body>
+
+<header>
+    <a href="" class="brand">© Dream school</a>
+</header>
+
+
+<section class="home">
+    <video class="video-slide active" src="1.mp4" autoplay muted loop></video>
+    <video class="video-slide" src="2.mp4" autoplay muted loop></video>
+    <video class="video-slide" src="3.mp4" autoplay muted loop></video>
+    
+<div class="content active">
+    <h1 class="gold">Китай общие сведения о стране<br><span></span></h1>
+    <p class="introduction__title">
+        Китай – густонаселенная страна в Восточной Азии с разнообразными ландшафтами и рельефом. Здесь можно найти луга, пустыни, горы, озера, реки и побережья протяженностью более 14 тыс. км. Столица страны, 
+        Пекин, славится современной архитектурой и древними памятниками! 
+    </p>
+</div>
+<div class="content">
+    <h1>Китай в Средние века<br><span></span></h1>
+    <p class="text__content">
+        Средневековьем в китайской истории обычно называют период от 
+        III до начала XVI в. В эту эпоху Китай развивался по-особому: 
+        здесь не было общественных изменений, характерных для средневековой Европы. Так, отсутствовали феодальные отношения в том виде, как они нам известны по европейской истории. Единое централизованное 
+        государство ― империя ― сложилось в Китае ещё до нашей эры. 
+        </p>
+</div>
+<div class="content">
+    <h1>Эпоха трех борющихся царств<br><span></span></h1>
+    <p class="text__content">
+        Саньго Шидай — период истории древнего Китая, длившийся с 
+        220 по 280 годы и известный как борьба и противостояние трех 
+        государств — Вэй, У и Шу. Начало периода Троецарствия пришлось 
+        на 220 год, когда распалась 
+        империя династии Хань, а на смену ей пришла империя Цзинь.
+        </p>
+</div>
+
+
+
+<div class="slider-navigation">
+    <div class="nav-btn active"></div>
+    <div class="nav-btn"></div>
+    <div class="nav-btn"></div>
+
+
+</div>
+</section>    
+   
+
+<script type="text/javascript">
+
+const btns = document.querySelectorAll(".nav-btn");
+const slides = document.querySelectorAll(".video-slide");
+const contents = document.querySelectorAll(".content");
+
+var sliderNav = function(manual){
+btns.forEach((btn)=>{
+btn.classList.remove("active");
+});
+
+slides.forEach((slide) => {
+    slide.classList.remove("active");
+});
+
+contents.forEach((content)=>{
+    content.classList.remove("active");
+
+});
+
+    btns[manual].classList.add("active");
+    slides[manual].classList.add("active");
+    contents [manual].classList.add("active");
+}
+
+btns.forEach((btn, i) => {
+btn.addEventListener("click", () => {
+sliderNav(i);
+});
+});
+
+
+
+
+class Text{
+    constructor(obj){
+      this.text = document.querySelector(obj)
+      this.fullText = this.text.innerHTML
+      this.text.innerHTML = ''
+  
+      this.str()
+    }
+    str(x = 0){
+      this.text.innerHTML += this.fullText[x]
+      x++
+      if (x < this.fullText.length) {
+        setTimeout(() => {
+          this.str(x)
+        }, 100);
+      }
+    }
+  }
+  const text = new Text('.introduction__title')
+
+
+</script>
+
+</body>
+</html>
